@@ -4,7 +4,7 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     const newDepositTotal = prevDepositTotal + newDepositAmount;
     // Error Handling
     if (isNaN(prevDepositTotal) || isNaN(newDepositAmount)) {
-        alert('Please enter a valid amount 😶');
+        alert("Please enter a valid amount 😶");
         return;
     }else if(newDepositAmount <= 0){
         alert('Please enter a valid amount 😶');

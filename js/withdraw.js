@@ -12,10 +12,7 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     const newWithdrawAmount = getInputFieldValueById('withdraw-amount');
     const prevWithdrawTotal = getTextElementValueById('total-withdraw');
     // Error Handling
-    if(newWithdrawAmount > prevWithdrawTotal){
-        alert('Baaper Bank a Eto Taka nay!');
-        return;
-    }else if(isNaN(prevWithdrawTotal) || isNaN(newWithdrawAmount)) {
+    if(isNaN(prevWithdrawTotal) || isNaN(newWithdrawAmount)) {
         alert('Please enter a valid amount 😶');
         return;
     }else if(newWithdrawAmount <= 0){
@@ -27,6 +24,12 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     setTextElementValueById('total-withdraw', newWithdrawTotal);
     // Get Previous Balance by using the function
     const prevBalanceTotal = getTextElementValueById('total-balance');
+    
+    if(newWithdrawAmount > prevBalanceTotal){
+        alert('Baaper Bank a Eto Taka nay!');
+        return;
+    }
+
     const newBalanceTotal = prevBalanceTotal - newWithdrawAmount;
     setTextElementValueById('total-balance', newBalanceTotal);
 });
