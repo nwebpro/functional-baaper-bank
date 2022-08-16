@@ -11,6 +11,18 @@
 document.getElementById('btn-withdraw').addEventListener('click', function(){
     const newWithdrawAmount = getInputFieldValueById('withdraw-amount');
     const prevWithdrawTotal = getTextElementValueById('total-withdraw');
+    // Error Handling
+    if(newWithdrawAmount > prevWithdrawTotal){
+        alert('Baaper Bank a Eto Taka nay!');
+        return;
+    }else if(isNaN(prevWithdrawTotal) || isNaN(newWithdrawAmount)) {
+        alert('Please enter a valid amount 😶');
+        return;
+    }else if(newWithdrawAmount <= 0){
+        alert('Please enter a valid amount 😶');
+        return;
+    }
+    
     const newWithdrawTotal = prevWithdrawTotal + newWithdrawAmount;
     setTextElementValueById('total-withdraw', newWithdrawTotal);
     // Get Previous Balance by using the function
