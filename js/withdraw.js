@@ -21,15 +21,16 @@ document.getElementById('btn-withdraw').addEventListener('click', function(){
     }
     
     const newWithdrawTotal = prevWithdrawTotal + newWithdrawAmount;
-    setTextElementValueById('total-withdraw', newWithdrawTotal);
     // Get Previous Balance by using the function
     const prevBalanceTotal = getTextElementValueById('total-balance');
     
+    // Error Handling
     if(newWithdrawAmount > prevBalanceTotal){
         alert('Baaper Bank a Eto Taka nay!');
         return;
     }
-
+    
+    setTextElementValueById('total-withdraw', newWithdrawTotal);
     const newBalanceTotal = prevBalanceTotal - newWithdrawAmount;
     setTextElementValueById('total-balance', newBalanceTotal);
 });
